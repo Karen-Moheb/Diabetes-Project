@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Care | Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <a href="../index.html" class="brand">
+            <span class="brand-icon">♥</span>
+            <span>
+                <strong>Diabetes Care</strong>
+                <small>Healthy Lifestyle | Better Life</small>
+            </span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="/">Home</a>
+        </nav>
+
+    </header>
+
+    <!-- MAIN LOGIN SECTION -->
+    <main class="main-container">
+
+        <!-- LEFT SIDE -->
+        <section class="hero-section">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">YOUR HEALTH, YOUR PRIORITY</span>
+
+                <h1>
+                    Take Control<br>
+                    of Your <span>Health</span>
+                </h1>
+
+                <p>
+                    Track your blood sugar,<br>
+                    get useful tips, and live a healthier life.
+                </p>
+
+                <div class="health-badge">
+                    ♥ Your health is our priority
+                </div>
+
+            </div>
+
+            <!-- 3D MEDICAL ILLUSTRATION -->
+            <div class="medical-scene">
+
+                <div class="scene-circle"></div>
+
+                <div class="glucose-meter">
+
+                    <div class="meter-top"></div>
+
+                    <div class="meter-screen">
+                        <span>GLUCOSE</span>
+                        <strong>108</strong>
+                        <small>mg/dL</small>
+                    </div>
+
+                    <div class="meter-buttons">
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="meter-bottom"></div>
+
+                </div>
+
+                <div class="floating-heart">♥</div>
+                <div class="medical-plus">+</div>
+
+                <div class="plant">
+                    <div class="plant-leaf leaf-one"></div>
+                    <div class="plant-leaf leaf-two"></div>
+                    <div class="plant-leaf leaf-three"></div>
+                    <div class="plant-leaf leaf-four"></div>
+                    <div class="plant-stem"></div>
+                    <div class="plant-pot"></div>
+                </div>
+
+                <div class="floating-circle"></div>
+
+                <div class="scene-caption">
+                    <strong>Stay Healthy</strong>
+                    <small>Take care of yourself</small>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- RIGHT SIDE -->
+        <section class="login-section">
+
+            <div class="login-card">
+
+                <div class="card-logo">♥</div>
+
+                <h2>Diabetes Care</h2>
+                <h3>Welcome Back!</h3>
+
+                <p class="login-subtitle">
+                    Login to continue your journey.
+                </p>
+
+                <form id="loginForm">
+
+                    <div class="input-group">
+
+                        <span class="input-icon">♙</span>
+
+                        <input type="text" id="username" placeholder="Username" autocomplete="username" required>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <span class="input-icon">♙</span>
+
+                        <input type="password" id="password" placeholder="Password" autocomplete="current-password"
+                            required>
+
+                        <button type="button" class="password-toggle" id="togglePassword" aria-label="Show password">
+                            ◉
+                        </button>
+
+                    </div>
+
+                    <div class="login-options">
+
+                        <label>
+                            <input type="checkbox" id="rememberMe">
+                            Remember Me
+                        </label>
+
+                        <a href="#" id="forgotPassword">
+                            Forgot Password?
+                        </a>
+
+                    </div>
+
+                    <button type="submit" class="login-button">
+                        Login <span>→</span>
+                    </button>
+
+                </form>
+
+                <p class="register-text">
+                    Don't have an account?
+                    <a href="/signup">Register</a>
+                </p>
+
+                <p id="loginMessage" class="login-message"></p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

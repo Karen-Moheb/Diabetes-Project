@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment History | Diabetes Care</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fc;
+            margin: 0;
+            padding: 30px;
+            color: #17366b;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #71809b;
+            margin-bottom: 30px;
+        }
+
+        .history-card {
+            background: white;
+            padding: 22px;
+            margin-bottom: 18px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #00000010;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 12px;
+        }
+
+        .details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 18px;
+        }
+
+        .detail {
+            background: #f4f7fc;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .detail span {
+            display: block;
+            color: #71809b;
+            font-size: 13px;
+            margin-bottom: 7px;
+        }
+
+        .detail strong {
+            font-size: 17px;
+        }
+
+        .negative {
+            color: #15966b;
+        }
+
+        .positive {
+            color: #d64b4b;
+        }
+
+        #message {
+            text-align: center;
+            margin: 30px;
+            color: #71809b;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #246fd0;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <a href="/form" class="back">← New Assessment</a>
+
+        <h1>Assessment History</h1>
+        <p class="subtitle">View all your previous assessments</p>
+
+        <div id="historyList"></div>
+        <p id="message">Loading your history...</p>
+
+    </div>
+
+    <script>
+        async function loadHistory() {
+            const historyList = document.getElementById("historyList");
+            const message = document.getElementById("message");
+
+            try {
+                const response = await fetch("/api/my-assessments");
+
+                if (response.status === 401 || response.status === 403) {
+                    message.textContent = "Please login to view your history.";
+                    return;
+                }
+
+                if (!response.ok) {
+                    throw new Error("Could not load assessment history.");
+                }
+
+                const assessments = await response.json();
+
+                message.textContent = "";
+
+                if (assessments.length === 0) {
+                    message.textContent = "You don't have any assessments yet.";
+                    return;
+                }
+
+                assessments.forEach(a => {
+                    const result = a.prediction === 1
+                        ? "Positive (1)"
+                        : "Negative (0)";
+
+                    const resultClass = a.prediction === 1
+                        ? "positive"
+                        : "negative";
+
+                    const card = document.createElement("div");
+                    card.className = "history-card";
+
+                    card.innerHTML = `
+                        <div class="card-header">
+                            <strong>Assessment #${a.id}</strong>
+                            <span>${new Date(a.created_at).toLocaleString()}</span>
+                        </div>
+
+                        <div class="details">
+                            <div class="detail">
+                                <span>Prediction</span>
+                                <strong class="${resultClass}">${result}</strong>
+                            </div>
+
+                            <div class="detail">
+                                <span>Model Probability</span>
+                                <strong>${a.probability}%</strong>
+                            </div>
+
+                            <div class="detail">
+                                <span>Glucose</span>
+                                <strong>${a.glucose}</strong>
+                            </div>
+
+                            <div class="detail">
+                                <span>BMI</span>
+                                <strong>${a.bmi}</strong>
+                            </div>
+
+                            <div class="detail">
+                                <span>Age</span>
+                                <strong>${a.age}</strong>
+                            </div>
+                        </div>
+                    `;
+
+                    historyList.appendChild(card);
+                });
+
+            } catch (error) {
+                message.textContent = error.message;
+            }
+        }
+
+        loadHistory();
+    </script>
+</body>
+
+</html>

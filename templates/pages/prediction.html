@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Diabetes Care | Prediction Result</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/prediction.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <a href="../index.html" class="brand">
+            <span class="brand-icon">
+                <i class="fa-solid fa-heart-pulse"></i>
+            </span>
+
+            <span class="brand-text">
+                <strong>Diabetes Care</strong>
+                <small>Healthy Lifestyle | Better Life</small>
+            </span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="/">
+                <a href="/form">Risk Assessment</a>
+                <a href="prediction.html" class="active">Results</a>
+                <a href="/contact">Contact</a>
+        </nav>
+
+        <div class="user-area">
+            <i class="fa-solid fa-user user-icon"></i>
+
+            <span id="welcomeUser">Welcome</span>
+
+            <button type="button" id="logoutBtn" class="logout-btn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+        </div>
+
+    </header>
+
+    <main class="result-container">
+
+        <section class="page-heading">
+
+            <span class="section-label">
+                <i class="fa-solid fa-brain"></i>
+                AI HEALTH ANALYSIS
+            </span>
+
+            <h1>Your Prediction Report</h1>
+
+            <p>
+                Your health information has been submitted for AI analysis.
+            </p>
+
+        </section>
+
+        <section class="main-result-card waiting" id="resultCard">
+
+            <div class="result-main">
+
+                <div class="result-icon" id="resultIcon">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+
+                <div class="result-text">
+
+                    <span class="result-label">PREDICTION RESULT</span>
+
+                    <h2 id="resultTitle">Waiting for Result</h2>
+
+                    <p id="resultDescription">
+                        Your information has been submitted.
+                        Waiting for the AI model result.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="result-value-box">
+                <span>Model Output</span>
+                <strong id="predictionValue">--</strong>
+            </div>
+
+            <div class="result-value-box">
+                <span>Probability</span>
+                <strong id="topProbability">--%</strong>
+            </div>
+
+        </section>
+
+        <section class="analytics-section">
+
+            <div class="section-heading">
+
+                <span class="section-label">DATA VISUALIZATION</span>
+
+                <h2>Prediction Analytics</h2>
+
+                <p>
+                    Visual representation of the values returned by the AI model.
+                </p>
+
+            </div>
+
+            <div class="analytics-grid">
+
+                <div class="chart-card">
+
+                    <h3>Prediction Probability</h3>
+
+                    <p class="chart-description">
+                        Probability value returned by the model.
+                    </p>
+
+                    <div class="donut-chart" id="donutChart">
+
+                        <div class="donut-center">
+                            <strong id="donutPercentage">--%</strong>
+                            <span>Probability</span>
+                        </div>
+
+                    </div>
+
+                    <div class="chart-legend">
+
+                        <span class="legend-item">
+                            <i class="legend-dot main-dot"></i>
+                            Model Probability
+                        </span>
+
+                        <span class="legend-item">
+                            <i class="legend-dot remaining-dot"></i>
+                            Remaining
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="chart-card analysis-card">
+
+                    <h3>Probability Analysis</h3>
+
+                    <p class="chart-description">
+                        Model probability on a scale from 0% to 100%.
+                    </p>
+
+                    <div class="bar-chart">
+
+                        <div class="bar-heading">
+                            <span>Model Probability</span>
+                            <strong id="barPercentage">--%</strong>
+                        </div>
+
+                        <div class="bar-background">
+                            <div class="bar-fill" id="probabilityBar"></div>
+                        </div>
+
+                        <div class="scale-labels">
+                            <span>0%</span>
+                            <span>25%</span>
+                            <span>50%</span>
+                            <span>75%</span>
+                            <span>100%</span>
+                        </div>
+
+                    </div>
+
+                    <div class="model-analysis">
+
+                        <div class="analysis-icon">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+
+                        <div>
+                            <strong>Model Analysis</strong>
+
+                            <p id="analysisText">
+                                Waiting for model output.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="chart-card overview-card">
+
+                    <h3>Result Overview</h3>
+
+                    <div class="overview-item">
+                        <span class="overview-icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </span>
+
+                        <span>Prediction</span>
+
+                        <strong id="overviewPrediction">--</strong>
+                    </div>
+
+                    <div class="overview-item">
+                        <span class="overview-icon">
+                            <i class="fa-solid fa-percent"></i>
+                        </span>
+
+                        <span>Probability</span>
+
+                        <strong id="overviewProbability">--%</strong>
+                    </div>
+
+                    <div class="overview-item">
+                        <span class="overview-icon">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </span>
+
+                        <span>Model Status</span>
+
+                        <strong class="status-pending" id="modelStatus">
+                            Waiting
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <div class="medical-note">
+
+            <span class="info-icon">
+                <i class="fa-solid fa-circle-info"></i>
+            </span>
+
+            <p>
+                This result is an AI-based prediction, not a confirmed medical diagnosis.
+                Please consult a healthcare professional for medical interpretation.
+            </p>
+
+        </div>
+
+        <div class="result-buttons">
+
+            <a href="/" class="home-button">
+                <i class="fa-solid fa-house"></i>
+                Back to Home
+            </a>
+
+            <a href="/form" class="new-button">
+                <i class="fa-solid fa-clipboard-list"></i>
+                New Assessment
+            </a>
+
+        </div>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

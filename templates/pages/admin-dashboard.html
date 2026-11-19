@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Diabetes Care</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin-dashboard.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <script src="{{ url_for('static', filename='js/admin-dashboard.js') }}" defer></script>
+</head>
+
+<body>
+
+    <!-- ACCESS DENIED -->
+    <div id="accessDenied" class="access-denied" hidden>
+        <div class="denied-card">
+            <i class="fa-solid fa-lock"></i>
+            <h2>Access Denied</h2>
+            <p>This page is only available to the administrator.</p>
+            <a href="{{ url_for('login_page') }}">Go to Login</a>
+        </div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboardLayout" hidden>
+
+        <!-- HEADER -->
+        <header class="topbar">
+
+            <div class="brand">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+
+                <div>
+                    <h2>Diabetes Care</h2>
+                    <span>Healthy Lifestyle | Better Life</span>
+                </div>
+            </div>
+
+            <div class="topbar-right">
+
+                <span class="admin-label">
+                    <i class="fa-solid fa-user-shield"></i>
+                    Welcome, <span id="adminWelcomeName">Admin</span>
+                </span>
+
+                <!-- NOTIFICATION BELL -->
+                <button type="button" id="notificationBtn" class="notification-btn"
+                    aria-label="View new contact messages" title="New contact messages">
+
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span id="notificationCount" class="notification-count" hidden>
+                        0
+                    </span>
+
+                </button>
+
+                <button id="logoutBtn" class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </button>
+
+            </div>
+
+        </header>
+
+        <main class="dashboard-container">
+
+            <!-- PAGE TITLE -->
+            <section class="page-heading" id="overviewSection">
+
+                <div>
+                    <h1>Admin Dashboard</h1>
+                    <p>Manage users, assessments and contact messages.</p>
+                </div>
+
+                <span class="admin-status">
+                    <i class="fa-solid fa-circle"></i>
+                    Administrator
+                </span>
+
+            </section>
+
+            <!-- STATISTICS -->
+            <section class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon blue">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div>
+                        <p>Total Users</p>
+                        <h2 id="totalUsers">0</h2>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                    </div>
+
+                    <div>
+                        <p>Total Assessments</p>
+                        <h2 id="totalAssessments">0</h2>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon red">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+
+                    <div>
+                        <p>Positive Predictions</p>
+                        <h2 id="positiveResults">0</h2>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon green">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+
+                    <div>
+                        <p>Negative Predictions</p>
+                        <h2 id="negativeResults">0</h2>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ADMIN INFORMATION AND QUICK ACTIONS -->
+            <section class="middle-grid">
+
+                <div class="panel">
+
+                    <div class="panel-heading">
+                        <div class="heading-icon">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </div>
+
+                        <h2>Admin Information</h2>
+                    </div>
+
+                    <div class="info-list">
+
+                        <div class="info-row">
+                            <i class="fa-solid fa-user"></i>
+                            <strong>Full Name</strong>
+                            <span id="adminFullName">—</span>
+                        </div>
+
+                        <div class="info-row">
+                            <i class="fa-solid fa-envelope"></i>
+                            <strong>Email</strong>
+                            <span id="adminEmail">—</span>
+                        </div>
+
+                        <div class="info-row">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <strong>Account Role</strong>
+                            <span>Administrator</span>
+                        </div>
+
+                        <div class="info-row">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <strong>Account Status</strong>
+                            <span class="active-status">Active</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="panel">
+
+                    <div class="panel-heading">
+                        <div class="heading-icon">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+
+                        <h2>Quick Actions</h2>
+                    </div>
+
+                    <div class="quick-actions">
+
+                        <button class="action-card" data-target="usersSection">
+                            <i class="fa-solid fa-users"></i>
+                            <span>View Users</span>
+                        </button>
+
+                        <button class="action-card" data-target="historySection">
+                            <i class="fa-solid fa-chart-column"></i>
+                            <span>View Assessments</span>
+                        </button>
+
+                        <button class="action-card" data-target="messagesSection">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>Contact Messages</span>
+                        </button>
+
+                        <button class="action-card" data-target="overviewSection">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Overview</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- REGISTERED USERS -->
+            <section class="panel content-panel" id="usersSection">
+
+                <div class="panel-heading">
+
+                    <div class="heading-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div>
+                        <h2>Registered Users</h2>
+                        <p>Users registered on Diabetes Care.</p>
+                    </div>
+
+                    <span class="count-badge" id="usersTotal">0 Users</span>
+
+                </div>
+
+                <div class="table-wrapper">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Full Name</th>
+                                <th>Email</th>
+                                <th>Phone Number</th>
+                                <th>Gender</th>
+                                <th>Member Since</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="usersTable">
+                            <tr>
+                                <td colspan="7" class="empty-state">
+                                    No registered users yet.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </section>
+
+            <!-- ASSESSMENT HISTORY -->
+            <section class="panel content-panel" id="historySection">
+
+                <div class="panel-heading">
+
+                    <div class="heading-icon">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+
+                    <div>
+                        <h2>Assessment History</h2>
+                        <p>Previous assessments and model results.</p>
+                    </div>
+
+                    <span class="count-badge" id="assessmentsTotal">
+                        0 Assessments
+                    </span>
+
+                </div>
+
+                <div class="table-wrapper">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Date & Time</th>
+                                <th>User</th>
+                                <th>Glucose</th>
+                                <th>Blood Pressure</th>
+                                <th>BMI</th>
+                                <th>Age</th>
+                                <th>Probability</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="assessmentsTable">
+                            <tr>
+                                <td colspan="9" class="empty-state">
+                                    No assessment records yet.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </section>
+
+            <!-- CONTACT MESSAGES -->
+            <section class="panel content-panel" id="messagesSection">
+
+                <div class="panel-heading">
+
+                    <div class="heading-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+
+                    <div>
+                        <h2>Contact Messages</h2>
+                        <p>Messages submitted through the Contact Us page.</p>
+                    </div>
+
+                    <span class="count-badge" id="messagesTotal">
+                        0 Messages
+                    </span>
+
+                </div>
+
+                <div id="messagesList" class="messages-list">
+
+                    <p class="empty-state">
+                        No contact messages yet.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="dashboard-footer">
+                &copy; 2026 Diabetes Care. Admin Panel.
+            </footer>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>

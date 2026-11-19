@@ -1,0 +1,664 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f6ff;
+    color: #193d73;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+
+.navbar {
+    width: 94%;
+    height: 75px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,.9);
+    padding: 0 28px;
+    border-radius: 0 0 18px 18px;
+    box-shadow: 0 6px 20px rgba(40,80,130,.08);
+    position: relative;
+    z-index: 5;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #173d75;
+    text-decoration: none;
+}
+
+.brand-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 27px;
+    background: linear-gradient(145deg,#8ec3f0,#2864aa);
+    border-radius: 12px;
+    box-shadow: 0 5px 12px #477ebd55;
+}
+
+.brand-text strong {
+    display: block;
+    font-size: 19px;
+}
+
+.brand-text small {
+    display: block;
+    color: #8193aa;
+    font-size: 9px;
+    margin-top: 3px;
+}
+
+.nav-links a {
+    color: #173d75;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 18px;
+    border-radius: 25px;
+}
+
+    .nav-links a:hover {
+        background: #e5efff;
+    }
+
+
+/* MAIN LAYOUT */
+
+.main-container {
+    display: grid;
+    grid-template-columns: 55% 45%;
+    min-height: calc(100vh - 75px);
+    padding-left: 4.5%;
+}
+
+
+/* LEFT SIDE */
+
+.hero-section {
+    position: relative;
+    min-height: 650px;
+    padding-top: 90px;
+    overflow: hidden;
+    background: radial-gradient(circle at 15% 15%,#e4edff 0,transparent 35%), linear-gradient(135deg,#f7f9ff,#edf3ff);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.eyebrow {
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: #7d96b7;
+}
+
+.hero-content h1 {
+    font-size: clamp(38px,4vw,53px);
+    line-height: 1.12;
+    color: #173d75;
+    margin: 18px 0;
+    font-weight: 800;
+}
+
+    .hero-content h1 span {
+        color: #69b5e9;
+    }
+
+.hero-content p {
+    font-size: 14px;
+    color: #7386a0;
+    line-height: 1.8;
+    max-width: 400px;
+}
+
+.health-badge {
+    display: inline-block;
+    margin-top: 22px;
+    background: linear-gradient(100deg,#8fc5ed,#397bc0);
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 11px 18px;
+    border-radius: 25px;
+    box-shadow: 0 7px 15px #5595cc55;
+}
+
+
+/* 3D MEDICAL SCENE */
+
+.medical-scene {
+    position: relative;
+    height: 350px;
+    width: 100%;
+    max-width: 500px;
+    margin-top: 0;
+    perspective: 900px;
+}
+
+.scene-circle {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    left: 90px;
+    top: 35px;
+    background: linear-gradient(145deg,#fff,#e0edff);
+    border-radius: 50%;
+    box-shadow: inset -12px -12px 25px #c9dcf5, inset 10px 10px 25px white, 0 15px 30px #a7c4e655;
+}
+
+
+/* GLUCOSE METER */
+
+.glucose-meter {
+    position: absolute;
+    z-index: 3;
+    left: 105px;
+    top: 65px;
+    width: 120px;
+    height: 190px;
+    border-radius: 32px;
+    background: linear-gradient(135deg,#fff,#dcecff 55%,#9ebfe5);
+    border: 5px solid #a7c9ed;
+    transform: rotate(-10deg) rotateY(-10deg);
+    box-shadow: 12px 15px 20px #315d9344, inset 4px 4px 9px white, inset -5px -5px 10px #a7c3e8;
+    animation: meterFloat 4s ease-in-out infinite;
+}
+
+.meter-top {
+    width: 30px;
+    height: 9px;
+    border-radius: 8px;
+    margin: 6px auto;
+    background: linear-gradient(90deg,#9ec9f2,#397bc0);
+}
+
+.meter-screen {
+    width: 90px;
+    height: 105px;
+    margin: 8px auto;
+    background: linear-gradient(145deg,#e4fbff,#b8e9ed);
+    border: 5px solid #5d8fc2;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 3px 8px #5b9ab355;
+}
+
+    .meter-screen span {
+        font-size: 8px;
+        color: #508c9b;
+        letter-spacing: 1px;
+    }
+
+    .meter-screen strong {
+        font-size: 30px;
+        color: #244e73;
+        margin: 4px 0;
+    }
+
+    .meter-screen small {
+        font-size: 9px;
+        color: #477b8b;
+    }
+
+    .meter-screen b {
+        font-size: 8px;
+        color: #4a9d83;
+        margin-top: 4px;
+    }
+
+.meter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+}
+
+    .meter-buttons span {
+        width: 13px;
+        height: 13px;
+        background: linear-gradient(145deg,#fff,#c4d9f1);
+        border: 1px solid #a4c2e4;
+        border-radius: 50%;
+        box-shadow: 2px 3px 4px #6b91b544;
+    }
+
+.meter-bottom {
+    position: absolute;
+    bottom: -13px;
+    left: 32px;
+    width: 45px;
+    height: 15px;
+    background: linear-gradient(90deg,#8cb8e7,#326fae);
+    border-radius: 10px;
+    box-shadow: 0 5px 8px #477bb555;
+}
+
+@keyframes meterFloat {
+    0%,100% {
+        transform: rotate(-10deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(-7deg) translateY(-13px);
+    }
+}
+
+
+/* HEART */
+
+.floating-heart {
+    position: absolute;
+    top: 45px;
+    left: 300px;
+    color: #79b8e9;
+    font-size: 30px;
+    text-shadow: 4px 5px 7px #3b78b855;
+    animation: heartFloat 3s ease-in-out infinite;
+}
+
+@keyframes heartFloat {
+    50% {
+        transform: translateY(-12px) rotate(8deg);
+    }
+}
+
+
+/* PLUS */
+
+.medical-plus {
+    position: absolute;
+    top: 190px;
+    left: 275px;
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(145deg,#b9dcff,#5593d1);
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    box-shadow: 5px 7px 12px #376ca855;
+    animation: plusFloat 4s ease-in-out infinite;
+}
+
+@keyframes plusFloat {
+    50% {
+        transform: translateY(-10px) rotate(15deg);
+    }
+}
+
+
+/* PLANT */
+
+.plant {
+    position: absolute;
+    left: 5px;
+    bottom: 0;
+    width: 100px;
+    height: 190px;
+    z-index: 2;
+}
+
+.plant-stem {
+    position: absolute;
+    left: 45px;
+    bottom: 45px;
+    width: 5px;
+    height: 100px;
+    background: linear-gradient(90deg,#4b9b79,#a5d7b9);
+    border-radius: 5px;
+}
+
+.plant-leaf {
+    position: absolute;
+    width: 37px;
+    height: 65px;
+    background: linear-gradient(145deg,#b7e7d1,#4a9d83);
+    border-radius: 90% 5% 90% 5%;
+    box-shadow: 4px 6px 9px #4e987c44;
+    transform-origin: bottom;
+}
+
+.leaf-one {
+    left: 12px;
+    top: 22px;
+    transform: rotate(-42deg);
+}
+
+.leaf-two {
+    right: 0;
+    top: 42px;
+    transform: rotate(48deg) scaleX(-1);
+}
+
+.leaf-three {
+    left: 7px;
+    top: 83px;
+    transform: rotate(-60deg) scale(.8);
+}
+
+.leaf-four {
+    right: 3px;
+    top: 96px;
+    transform: rotate(60deg) scale(.8) scaleX(-1);
+}
+
+.plant-pot {
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    width: 70px;
+    height: 55px;
+    border-radius: 7px 7px 20px 20px;
+    background: linear-gradient(100deg,#fff,#a9c9eb);
+    box-shadow: 5px 9px 12px #557eaa44;
+}
+
+
+/* CLIPBOARD */
+
+.clipboard {
+    position: absolute;
+    right: 35px;
+    bottom: 25px;
+    width: 130px;
+    height: 190px;
+    padding: 13px;
+    border-radius: 12px;
+    background: linear-gradient(140deg,#a9ccef,#3979bd);
+    transform: rotate(8deg);
+    box-shadow: 9px 12px 18px #315d9344;
+    z-index: 2;
+}
+
+.clip {
+    position: absolute;
+    top: -10px;
+    left: 43px;
+    width: 45px;
+    height: 20px;
+    border-radius: 7px;
+    background: linear-gradient(90deg,#d4e8ff,#528dcb);
+}
+
+.clipboard-paper {
+    height: 100%;
+    background: white;
+    border-radius: 7px;
+    padding: 30px 12px;
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    align-content: start;
+    gap: 14px 5px;
+    color: #4b91d0;
+    font-size: 20px;
+}
+
+    .clipboard-paper i {
+        height: 5px;
+        background: #d5e7fa;
+        border-radius: 5px;
+        margin-top: 9px;
+    }
+
+.scene-caption {
+    position: absolute;
+    bottom: 12px;
+    left: 230px;
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+    color: #234d7c;
+}
+
+    .scene-caption small {
+        color: #8ba0b8;
+        margin-top: 5px;
+    }
+
+
+/* RIGHT SECTION */
+
+.signup-section {
+    min-height: 650px;
+    background: linear-gradient(145deg,#4f81bf,#245a9b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+    .signup-section::before {
+        content: "";
+        position: absolute;
+        width: 350px;
+        height: 350px;
+        background: #ffffff0b;
+        border-radius: 50%;
+        top: -120px;
+        right: -100px;
+    }
+
+.signup-card {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(145deg,#fff,#f9fbff);
+    width: 100%;
+    max-width: 390px;
+    border-radius: 25px;
+    padding: 28px 30px;
+    text-align: center;
+    box-shadow: 15px 20px 35px #123d7044, inset 2px 2px 8px white;
+}
+
+.card-logo {
+    width: 43px;
+    height: 43px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    background: linear-gradient(145deg,#a4d4f5,#4284c2);
+    color: white;
+    display: grid;
+    place-items: center;
+    font-size: 23px;
+    box-shadow: 0 5px 12px #4386c355;
+}
+
+.signup-card h2 {
+    font-size: 17px;
+    color: #4778aa;
+    margin-bottom: 20px;
+}
+
+.signup-card h3 {
+    font-size: 23px;
+    color: #1d416f;
+    margin-bottom: 7px;
+}
+
+.signup-subtitle {
+    font-size: 12px;
+    color: #9aa8ba;
+    margin-bottom: 23px;
+}
+
+
+/* INPUTS */
+
+.input-group {
+    position: relative;
+    margin-bottom: 13px;
+}
+
+    .input-group input {
+        width: 100%;
+        height: 43px;
+        border: 1px solid #e0e9f4;
+        background: #fbfdff;
+        border-radius: 13px;
+        outline: none;
+        padding: 0 40px;
+        font-size: 12px;
+        color: #244c7c;
+        transition: .3s;
+    }
+
+        .input-group input:focus {
+            border-color: #6ba6df;
+            box-shadow: 0 0 0 3px #6ba6df22;
+        }
+
+        .input-group input::placeholder {
+            color: #aab8c9;
+        }
+
+.input-icon {
+    position: absolute;
+    left: 14px;
+    top: 12px;
+    font-size: 15px;
+    color: #91a8c5;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 13px;
+    top: 11px;
+    background: none;
+    border: none;
+    color: #829bb8;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+/* TERMS */
+
+.terms-row {
+    text-align: left;
+    margin: 17px 0;
+    font-size: 11px;
+    color: #8495aa;
+}
+
+    .terms-row label {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+    }
+
+    .terms-row input {
+        accent-color: #4386c4;
+    }
+
+
+/* BUTTON */
+
+.signup-button {
+    width: 100%;
+    height: 47px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(100deg,#83c4ef,#3978bc);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 7px 14px #397bbd55;
+    transition: .3s;
+}
+
+    .signup-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 18px #397bbd66;
+    }
+
+    .signup-button span {
+        margin-left: 10px;
+        font-size: 19px;
+    }
+
+.signup-message {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #397fbe;
+}
+
+.login-link {
+    font-size: 11px;
+    color: #9ba9ba;
+    margin-top: 18px;
+}
+
+    .login-link a {
+        color: #397fbe;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+    .main-container {
+        grid-template-columns: 1fr;
+        padding-left: 0;
+    }
+
+    .hero-section {
+        min-height: 570px;
+        padding: 65px 7% 0;
+    }
+
+    .medical-scene {
+        margin: 10px auto 0;
+    }
+
+    .signup-section {
+        min-height: 650px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        width: 100%;
+        padding: 0 18px;
+    }
+
+    .hero-section {
+        min-height: 550px;
+    }
+
+    .hero-content h1 {
+        font-size: 39px;
+    }
+
+    .medical-scene {
+        transform: scale(.85);
+        transform-origin: top left;
+    }
+
+    .signup-card {
+        padding: 28px 20px;
+    }
+}

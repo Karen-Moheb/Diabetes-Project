@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Care | Risk Assessment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/from.css') }}">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="../index.html" class="brand">
+            <span class="brand-heart">+</span>
+            <span>Diabetes Care</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="/">Home</a>
+            <a href="/form" class="active">Risk Assessment</a>
+            <a href="/history">My History</a>
+        </nav>
+    </header>
+
+    <main class="main-container">
+
+        <section class="left-section">
+            <h1>Diabetes Care</h1>
+            <h2>AI Prediction System</h2>
+            <div class="title-line"></div>
+
+            <p class="description">
+                Enter your health information
+                <br>
+                to predict the risk of diabetes.
+            </p>
+
+            <div class="illustration">
+                <div class="plant">
+                    <div class="leaf leaf1"></div>
+                    <div class="leaf leaf2"></div>
+                    <div class="leaf leaf3"></div>
+                    <div class="leaf leaf4"></div>
+                    <div class="stem"></div>
+                    <div class="pot"></div>
+                </div>
+
+                <div class="clipboard">
+                    <div class="clip"></div>
+                    <div class="paper">
+                        <span>+</span>
+                        <span>+</span>
+                        <span>+</span>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </div>
+                </div>
+
+                <div class="meter">
+                    <div class="meter-top"></div>
+                    <div class="meter-screen">
+                        <span>GLUCOSE</span>
+                        <strong>108</strong>
+                        <small>mg/dL</small>
+                    </div>
+                    <div class="meter-button"></div>
+                    <div class="meter-bottom"></div>
+                </div>
+
+                <div class="medical-plus">+</div>
+            </div>
+        </section>
+
+        <section class="right-section">
+            <div class="form-card">
+
+                <div class="card-logo">
+                    <svg viewBox="0 0 48 48" aria-hidden="true">
+                        <path d="M24 39S5 27 5 15C5 5 19 2 24 13C29 2 43 5 43 15C43 27 24 39 24 39Z" fill="white" />
+                        <path d="M9 23H17L21 16L26 29L30 21L33 23H39" fill="none" stroke="#5595ce" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+
+                <h2>Risk Assessment</h2>
+                <div class="heading-line"></div>
+
+                <form id="diabetesForm">
+                    <div class="fields-grid">
+
+                        <div class="field">
+                            <div class="field-icon">
+                                <svg viewBox="0 0 48 48">
+                                    <circle cx="24" cy="11" r="7" />
+                                    <path d="M11 40V31C11 22 16 19 24 19S37 22 37 31V40" />
+                                    <path d="M17 40V31M31 40V31" />
+                                </svg>
+                            </div>
+                            <div class="field-content">
+                                <label for="pregnancies">Pregnancies</label>
+                                <input type="number" id="pregnancies" name="Pregnancies" min="0" step="1"
+                                    placeholder="Enter number" required>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="field-icon">
+                                <svg viewBox="0 0 48 48">
+                                    <path d="M24 5C24 5 10 22 10 30A14 14 0 0 0 38 30C38 22 24 5 24 5Z" />
+                                    <path d="M17 31C18 35 21 37 25 37" />
+                                </svg>
+                            </div>
+                            <div class="field-content">
+                                <label for="glucose">Glucose (mg/dL)</label>
+                                <input type="number" id="glucose" name="Glucose" min="0" step="any"
+                                    placeholder="Enter value" required>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="field-icon">
+                                <svg viewBox="0 0 48 48">
+                                    <path d="M24 41S5 29 5 17C5 7 19 4 24 15C29 4 43 7 43 17C43 29 24 41 24 41Z" />
+                                    <path d="M8 24H16L20 17L25 31L29 22L32 24H40" />
+                                </svg>
+                            </div>
+                            <div class="field-content">
+                                <label for="bloodPressure">Blood Pressure (mm Hg)</label>
+                                <input type="number" id="bloodPressure" name="BloodPressure" min="0" step="any"
+                                    placeholder="Enter value" required>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="field-icon">
+                                <svg viewBox="0 0 48 48">
+                                    <path d="M7 17L24 8L41 17L24 26L7 17Z" />
+                                    <path d="M7 24L24 33L41 24M7 31L24 40L41 31" />
+                                </svg>
+                            </div>
+                            <div class="field-content">
+                                <label for="skinThickness">Skin Thickness (mm)</label>
+                                <input type="number" id="skinThickness" name="SkinThickness" min="0" step="any"
+                                    placeholder="Enter value" required>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="field-icon">
+                                <svg viewBox="0 0 48 48">
+                                    <path d="M10 31L29 12L37 20L18 39L10 31Z" />
+                                    <path d="M25 16L33 24M7 34L15 42M30 10L38 18" />
+                                </svg>
+                            </div>
+                            <div class="field-content">
+                                <label for="insulin">Insulin (mu U/ml)</label>
+                                <input type="number" id="insulin" name="Insulin" min="0" step="any"
+                                    placeholder="Enter value" required>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="field-icon">
+                                <svg viewBox="0 0 48 48">
+                                    <rect x="9" y="7" width="30" height="35" rx="5" />
+                                    <path d="M17 7V14H31V7" />
+                                    <path d="M24 20V25L29 29" />
+                                    <circle cx="24" cy="25" r="8" />
+                                </svg>
+                            </div>
+                            <div class="field-content">
+                                <label for="bmi">BMI (kg/m²)</label>
+                                <input type="number" id="bmi" name="BMI" min="0" step="any" placeholder="Enter value"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="field-icon">
+                                <svg viewBox="0 0 48 48">
+                                    <circle cx="24" cy="24" r="17" />
+                                    <path d="M24 12V24L33 29" />
+                                </svg>
+                            </div>
+                            <div class="field-content">
+                                <label for="diabetesPedigree">Diabetes Pedigree Function</label>
+                                <input type="number" id="diabetesPedigree" name="DiabetesPedigreeFunction" min="0"
+                                    step="any" placeholder="Enter value" required>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="field-icon">
+                                <svg viewBox="0 0 48 48">
+                                    <rect x="7" y="11" width="34" height="30" rx="4" />
+                                    <path d="M16 5V17M32 5V17M7 21H41" />
+                                    <path d="M16 28H16.1M24 28H24.1M32 28H32.1M16 34H16.1M24 34H24.1" />
+                                </svg>
+                            </div>
+                            <div class="field-content">
+                                <label for="age">Age (years)</label>
+                                <input type="number" id="age" name="Age" min="1" step="1" placeholder="Enter value"
+                                    required>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="predict-button">Predict</button>
+                    <p class="form-message" id="formMessage"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>

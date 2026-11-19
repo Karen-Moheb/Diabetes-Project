@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Care | Sign Up</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <a href="../index.html" class="brand">
+
+            <span class="brand-icon">
+                <i class="fa-solid fa-heart-pulse"></i>
+            </span>
+
+            <span class="brand-text">
+                <strong>Diabetes Care</strong>
+                <small>Monitor • Manage • Live Healthy</small>
+            </span>
+
+        </a>
+
+        <nav class="nav-links">
+            <a href="/">Home</a>
+        </nav>
+
+    </header>
+
+    <!-- MAIN SECTION -->
+    <main class="main-container">
+
+        <!-- LEFT SIDE -->
+        <section class="hero-section">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">YOUR HEALTH, YOUR PRIORITY</span>
+
+                <h1>
+                    Start Your<br>
+                    Healthy <span>Journey</span>
+                </h1>
+
+                <p>
+                    Create your account today and take the first
+                    step toward a healthier lifestyle.
+                </p>
+
+                <div class="health-badge">
+                    <i class="fa-solid fa-heart"></i>
+                    Your health is our priority
+                </div>
+
+            </div>
+
+            <!-- 3D MEDICAL SCENE -->
+            <div class="medical-scene">
+
+                <div class="scene-circle"></div>
+
+                <div class="glucose-meter">
+
+                    <div class="meter-top"></div>
+
+                    <div class="meter-screen">
+                        <span>GLUCOSE</span>
+                        <strong>108</strong>
+                        <small>mg/dL</small>
+                        <b>Normal</b>
+                    </div>
+
+                    <div class="meter-buttons">
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="meter-bottom"></div>
+
+                </div>
+
+                <div class="floating-heart">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+
+                <div class="medical-plus">+</div>
+
+                <div class="plant">
+                    <div class="plant-leaf leaf-one"></div>
+                    <div class="plant-leaf leaf-two"></div>
+                    <div class="plant-leaf leaf-three"></div>
+                    <div class="plant-leaf leaf-four"></div>
+                    <div class="plant-stem"></div>
+                    <div class="plant-pot"></div>
+                </div>
+
+                <div class="clipboard">
+                    <div class="clip"></div>
+
+                    <div class="clipboard-paper">
+                        <span><i class="fa-solid fa-check"></i></span>
+                        <i></i>
+
+                        <span><i class="fa-solid fa-check"></i></span>
+                        <i></i>
+
+                        <span><i class="fa-solid fa-check"></i></span>
+                        <i></i>
+                    </div>
+                </div>
+
+                <div class="scene-caption">
+                    <strong>Stay Healthy</strong>
+                    <small>Small steps make a big difference</small>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- RIGHT SIDE -->
+        <section class="signup-section">
+
+            <div class="signup-card">
+
+                <div class="card-logo">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+
+                <h2>Diabetes Care</h2>
+                <h3>Create Account</h3>
+
+                <p class="signup-subtitle">
+                    Join us and start your healthy journey.
+                </p>
+
+                <form id="signupForm">
+
+                    <!-- USERNAME -->
+                    <div class="input-group">
+
+                        <span class="input-icon">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+
+                        <input type="text" id="signupUsername" name="username" placeholder="Username"
+                            autocomplete="username" required>
+
+                    </div>
+
+                    <!-- EMAIL -->
+                    <div class="input-group">
+
+                        <span class="input-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </span>
+
+                        <input type="email" id="signupEmail" name="email" placeholder="Email Address"
+                            autocomplete="email" required>
+
+                    </div>
+
+                    <!-- PHONE NUMBER -->
+                    <div class="input-group">
+
+                        <span class="input-icon">
+                            <i class="fa-solid fa-phone"></i>
+                        </span>
+
+                        <input type="tel" id="signupPhone" name="phone" placeholder="Phone Number" autocomplete="tel"
+                            required>
+
+                    </div>
+
+                    <!-- GENDER -->
+                    <div class="input-group">
+
+                        <span class="input-icon">
+                            <i class="fa-solid fa-venus-mars"></i>
+                        </span>
+
+                        <select id="signupGender" name="gender" aria-label="Gender">
+
+                            <option value="" selected disabled>
+                                Select Gender (Optional)
+                            </option>
+
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Prefer not to say">
+                                Prefer not to say
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- PASSWORD -->
+                    <div class="input-group">
+
+                        <span class="input-icon">
+                            <i class="fa-solid fa-lock"></i>
+                        </span>
+
+                        <input type="password" id="signupPassword" name="password" placeholder="Password" minlength="8"
+                            autocomplete="new-password" required>
+
+                        <button type="button" class="password-toggle" id="toggleSignupPassword"
+                            aria-label="Show password">
+
+                            <i class="fa-solid fa-eye"></i>
+
+                        </button>
+
+                    </div>
+
+                    <!-- CONFIRM PASSWORD -->
+                    <div class="input-group">
+
+                        <span class="input-icon">
+                            <i class="fa-solid fa-lock"></i>
+                        </span>
+
+                        <input type="password" id="confirmPassword" name="confirmPassword"
+                            placeholder="Confirm Password" minlength="8" autocomplete="new-password" required>
+
+                        <button type="button" class="password-toggle" id="toggleConfirmPassword"
+                            aria-label="Show confirm password">
+
+                            <i class="fa-solid fa-eye"></i>
+
+                        </button>
+
+                    </div>
+
+                    <!-- TERMS -->
+                    <div class="terms-row">
+
+                        <label>
+                            <input type="checkbox" id="terms" name="terms" required>
+
+                            <span>I agree to the Terms & Conditions</span>
+                        </label>
+
+                    </div>
+
+                    <!-- SIGN UP BUTTON -->
+                    <button type="submit" class="signup-button">
+                        Create Account
+                        <span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </button>
+
+                    <p id="signupMessage" class="signup-message"></p>
+
+                </form>
+
+                <p class="login-link">
+                    Already have an account?
+                    <a href="/login">Login</a>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

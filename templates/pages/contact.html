@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Diabetes Care | Contact Us</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <a href="/" class="brand">
+
+            <span class="brand-icon">
+                <i class="fa-solid fa-heart-pulse"></i>
+            </span>
+
+            <span class="brand-text">
+                <strong>Diabetes Care</strong>
+                <small>Healthy Lifestyle | Better Life</small>
+            </span>
+
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="/">Home</a>
+
+            <a href="/#about">About</a>
+
+            <a href="/#daily">Daily Assessment</a>
+
+            <a href="/#tips">Tips</a>
+
+            <a href="/contact" class="active">Contact</a>
+
+        </nav>
+
+
+        <!-- GUEST LINKS: LOGIN & SIGNUP -->
+
+        <div class="nav-buttons" id="guestLinks">
+
+            <a href="/login" class="login-btn">
+                Log In
+            </a>
+
+            <a href="/signup" class="signup-btn">
+                Sign Up
+            </a>
+
+        </div>
+
+
+        <!-- USER LINKS: WELCOME & LOGOUT -->
+
+        <div class="nav-buttons" id="userLinks" style="display: none;">
+
+            <span id="welcomeUser" class="welcome-user"></span>
+
+            <button type="button" id="logoutBtn" class="signup-btn">
+                Log Out
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= CONTACT CONTENT ================= -->
+
+    <main class="contact-container">
+
+
+        <!-- LEFT SIDE -->
+
+        <section class="contact-visual">
+
+            <div class="visual-circle"></div>
+
+            <div class="medical-scene">
+
+                <div class="clipboard">
+
+                    <div class="clip-top"></div>
+
+                    <div class="check-row">
+                        <span>
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+                        <i></i>
+                    </div>
+
+                    <div class="check-row">
+                        <span>
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+                        <i></i>
+                    </div>
+
+                    <div class="check-row">
+                        <span>
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+                        <i></i>
+                    </div>
+
+                </div>
+
+
+                <div class="heart-decoration">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+
+
+                <div class="drop-decoration"></div>
+
+
+                <!-- GLUCOSE METER -->
+
+                <div class="glucose-meter">
+
+                    <div class="meter-top"></div>
+
+                    <div class="meter-screen">
+
+                        <span class="drop-small">
+                            <i class="fa-solid fa-droplet"></i>
+                        </span>
+
+                        <strong>98</strong>
+
+                        <span>mg/dL</span>
+
+                    </div>
+
+                    <div class="meter-buttons">
+
+                        <span>
+                            <i class="fa-solid fa-minus"></i>
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-plus"></i>
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="medicine-bottle">
+                    <span>+</span>
+                </div>
+
+
+                <div class="test-strip"></div>
+
+
+                <div class="plant">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                    <div></div>
+
+                </div>
+
+
+                <div class="platform"></div>
+
+            </div>
+
+
+            <div class="visual-caption">
+
+                <h2>We're Here to Help!</h2>
+
+                <div class="caption-line"></div>
+
+                <p>
+                    Your questions and feedback matter to us.
+                    Feel free to get in touch.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- RIGHT SIDE -->
+
+        <section class="contact-form-section">
+
+            <div class="contact-card">
+
+
+                <!-- FORM HEADING -->
+
+                <div class="form-heading">
+
+                    <span class="heading-label">
+                        CONTACT US
+                    </span>
+
+                    <h1>Get in Touch</h1>
+
+                    <div class="heading-line"></div>
+
+                    <p>
+                        We are here for you! How can we help?
+                    </p>
+
+                </div>
+
+
+
+                <!-- CONTACT FORM -->
+
+                <form id="contactForm">
+
+
+                    <!-- NAME & EMAIL -->
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label for="contactName">
+
+                                <i class="fa-solid fa-user"></i>
+
+                                Name
+
+                            </label>
+
+                            <input type="text" id="contactName" name="name" placeholder="Enter your name" required>
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label for="contactEmail">
+
+                                <i class="fa-solid fa-envelope"></i>
+
+                                Email
+
+                            </label>
+
+                            <input type="email" id="contactEmail" name="email" placeholder="Enter your email" required>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- MESSAGE -->
+
+                    <div class="form-group">
+
+                        <label for="contactMessage">
+
+                            <i class="fa-solid fa-comment-dots"></i>
+
+                            Message
+
+                        </label>
+
+                        <textarea id="contactMessage" name="message" placeholder="Type your message here..."
+                            required></textarea>
+
+                    </div>
+
+
+
+                    <!-- SEND BUTTON -->
+
+                    <button type="submit" class="send-button">
+
+                        <i class="fa-solid fa-paper-plane"></i>
+
+                        Send Message
+
+                    </button>
+
+
+                    <!-- FEEDBACK -->
+
+                    <p id="formFeedback" class="form-feedback"></p>
+
+
+                </form>
+
+
+
+                <!-- FOOTER -->
+
+                <div class="contact-footer">
+
+                    <i class="fa-solid fa-heart"></i>
+
+                    &nbsp; Thank you for contacting Diabetes Care
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <!-- MAIN SCRIPT: USER DISPLAY & LOGOUT -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+
+    <!-- CONTACT SCRIPT: CONTACT FORM -->
+
+    <script src="{{ url_for('static', filename='js/contact.js') }}"></script>
+
+
+</body>
+
+</html>
