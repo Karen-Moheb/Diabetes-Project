@@ -10,18 +10,35 @@ from config import Config
 from flask_login import LoginManager
 from flask_login import login_user, logout_user, login_required, current_user
 
+
 app = Flask(__name__)
 
 app.config.from_object(Config)
 
-# Database configuration
+
+database_url = os.environ.get("DATABASE_URL")
+
+if not database_url:
+    raise RuntimeError("DATABASE_URL is not set")
+
+if database_url.startswith("postgres://"):
+    database_url = database_url.replace(
+        "postgres://", "postgresql+psycopg2://", 1
+    )
+elif database_url.startswith("postgresql://"):
+    database_url = database_url.replace(
+        "postgresql://", "postgresql+psycopg2://", 1
+    )
+
+app.config["SQLALCHEMY_DATABASE_URI"] = database_url
+
+
+# Create instance folder if it doesn't exist
 os.makedirs(app.instance_path, exist_ok=True)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = (
-    "sqlite:///" + os.path.join(app.instance_path, "diabetes.db")
-)
-
+# Initialize database
 db.init_app(app)
+
 
 login_manager = LoginManager()
 login_manager.init_app(app)
