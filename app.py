@@ -33,9 +33,6 @@ elif database_url.startswith("postgresql://"):
 app.config["SQLALCHEMY_DATABASE_URI"] = database_url
 
 
-# Create instance folder if it doesn't exist
-os.makedirs(app.instance_path, exist_ok=True)
-
 # Initialize database
 db.init_app(app)
 
