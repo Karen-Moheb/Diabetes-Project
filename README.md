@@ -59,7 +59,7 @@ The system consists of the following components:
 The project uses the Pima Indians Diabetes Dataset from Kaggle.
 
 Dataset Source:
-https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database
+https://www.kaggle.com/datasets/mragpavank/diabetes
 
 ## 7. Installation Instructions
 
@@ -153,7 +153,7 @@ Prediction reports display the result with a probability value.
 - Neon Documentation: https://neon.com/docs
 - Vercel Documentation: https://vercel.com/docs
 - Python Documentation: https://docs.python.org/3/
-- Pima Indians Diabetes Dataset: https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database
+- Pima Indians Diabetes Dataset: https://www.kaggle.com/datasets/mragpavank/diabetes
 
 ---
 
